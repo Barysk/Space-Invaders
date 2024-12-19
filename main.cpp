@@ -24,6 +24,7 @@ int main()
       game.Update(); // Game update that handles moving of items not controlled by player
 
       BeginDrawing(); // Creates black canvas, so we can draw game objects on
+
       ClearBackground(grey); // Clears last frame and sets backround again
       game.Draw(); // Actually draw spaceship on screen using game class
       EndDrawing(); // Ends drawing canvas

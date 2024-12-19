@@ -1,5 +1,6 @@
 #pragma once
 #include "spaceship.h"
+#include "obstacle.h"
 
 class Game
 {
@@ -11,5 +12,7 @@ public:
   void HandleInput(); // Handle player input
 private:
   Spaceship spaceship; // spaceship atribute
-  void deleteInactiveLasers();
+  std::vector<Obstacle> CreateObstacles(); // Method to create obstacles
+  void deleteInactiveLasers(); // Method to delete lasers that left the screen
+  std::vector<Obstacle> obstacles; // Var to keep all obstacles
 };

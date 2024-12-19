@@ -5,7 +5,7 @@ Spaceship::Spaceship()
 {
   image = LoadTexture("Graphics/spaceship.png");
   position.x = (GetScreenWidth() - image.width)/2;
-  position.y = (GetScreenHeight() - image.height)/9*8;
+  position.y = (GetScreenHeight() - image.height);
   speed = 5;
   cooldown = 0.3f;
   last_fire_time = 0.0;

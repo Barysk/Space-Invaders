@@ -2,7 +2,7 @@
 
 Game::Game()
 {
-
+  obstacles = CreateObstacles();
 }
 
 Game::~Game()
@@ -12,7 +12,8 @@ Game::~Game()
 
 void Game::Update()
 {
-  for(auto& laser: spaceship.lasers){
+  for(auto& laser: spaceship.lasers)
+    {
       laser.Update();
     }
 
@@ -28,19 +29,29 @@ void Game::Draw()
   // auto is a variable type, compiler will autmaticly identify that it is Vector
   // auto can be changed to a std:Vector var named Laser. auto here adds a layer of readability
   // & is need for referenciing every var in array, so no need to copy it.
-  for(auto& laser: spaceship.lasers){
+  for(auto& laser: spaceship.lasers)
+    {
       laser.Draw();
+    }
+
+  for(auto& obstacle: obstacles)
+    {
+      obstacle.Draw();
     }
 }
 
-void Game::HandleInput(){
-  if(IsKeyDown(KEY_LEFT)) {
+void Game::HandleInput()
+{
+  if(IsKeyDown(KEY_LEFT))
+    {
       spaceship.MoveLeft();
     }
-  else if(IsKeyDown(KEY_RIGHT)) {
+  else if(IsKeyDown(KEY_RIGHT))
+    {
       spaceship.MoveRight();
     }
-  else if(IsKeyDown(KEY_SPACE)) {
+  else if(IsKeyDown(KEY_SPACE))
+    {
       spaceship.FireLaser();
     }
 }
@@ -63,4 +74,17 @@ void Game::deleteInactiveLasers()
           ++it;
         }
     }
+}
+
+std::vector<Obstacle> Game::CreateObstacles()
+{
+  int obstacleWidth = Obstacle::grid[0].size() * 3;
+  int gap = (GetScreenWidth() - (4 * obstacleWidth))/5;
+
+  for(int i = 0; i < 4; i++){
+      float offsetX = (i + 1) * gap + i * obstacleWidth;
+      obstacles.push_back(Obstacle({offsetX, float(GetScreenHeight() - 100)}));
+    }
+
+  return obstacles;
 }
