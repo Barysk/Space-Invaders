@@ -12,7 +12,9 @@ add_executable(SpaceInvaders main.cpp
     game.cpp
     laser.h laser.cpp
     block.h block.cpp
-    obstacle.h obstacle.cpp)
+    obstacle.h obstacle.cpp
+    alien.h alien.cpp
+    mysteryship.h mysteryship.cpp)
 
 find_package(raylib REQUIRED)
 target_link_libraries(SpaceInvaders PRIVATE raylib pthread GL m dl rt X11)

@@ -8,7 +8,7 @@ public:
   void Update();
   void Draw();
   bool active;
-  //~Laser();
+  Rectangle getRect();
 private:
   Vector2 position;
   int speed;

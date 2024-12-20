@@ -17,9 +17,19 @@ void Laser::Draw()
 void Laser::Update()
 {
   position.y += speed;
-  if(position.y > GetScreenHeight() || position.y < 0)
+  if(position.y > GetScreenHeight() - 100 || position.y < 25)
     {
       active = false;
       std::cout << "laser inactive" << std::endl;
     }
+}
+
+Rectangle Laser::getRect()
+{
+  Rectangle rect;
+  rect.x = position.x;
+  rect.y = position.y;
+  rect.width = 4;
+  rect.height = 15;
+  return rect;
 }

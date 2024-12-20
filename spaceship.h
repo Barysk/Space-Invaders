@@ -16,6 +16,8 @@ public:
   void MoveRight();
   void FireLaser();
   std::vector<Laser> lasers;
+  Rectangle getRect();
+  void Reset();
 private:
   // Fairly enough those functions are private
   // becouse they are going to be local to the ship
@@ -24,4 +26,5 @@ private:
   unsigned int speed;
   float cooldown;
   double last_fire_time;
+  Sound laserSound;
 };
